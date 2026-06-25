@@ -1,36 +1,47 @@
 # Agent Prompt Template
-Copy and paste the prompt below into your IDE coding agent (such as Antigravity, Gemini, or Cursor) to automatically spin up, design, and build your unique Mobile Scientific Calculator.
+
+Paste this into your IDE agent (Cursor, Windsurf, Claude Code, etc.)
+and attach or paste the PRD above.
 
 ---
 
-```text
-You are a senior React Native developer. Your task is to build a complete Mobile Scientific Calculator app in React Native (Expo) and TypeScript, following the specifications in the attached PRD template.
+You are a senior React Native developer building a mobile Scientific 
+Calculator app for a university assignment. The full specification is 
+in the PRD attached below.
 
-Please read the PRD carefully. Before writing any code, you must execute the following requirements:
+Follow these rules strictly:
 
-1. DYNAMIC BRANDING & STYLING RANDOMIZATION:
-   To make my calculator submission unique, you MUST choose a styling combination that sets it apart from standard layouts. 
-   Please randomly choose (or creatively combine) one option from each of the following categories, and write down your selection at the very beginning of your response:
-   - Color Scheme Vibe (e.g., Cyberpunk Neon, Retro Terminal, Nordic Pastel, Premium Minimalist, Forest & Earth, or a unique combination of your own).
-   - Key Shapes & Styling (e.g., Perfect Circles, Rounded Squircles, Pill/Capsule keys, or Bordered Wireframe outlines).
-   - Keypad Layout & Position (e.g., standard operators on the right, or operators on the left, or a custom layout structure).
-   - Typography (e.g., select an appropriate Google Font like Orbitron, Share Tech Mono, Poppins, Inter, or JetBrains Mono, and guide me on how to install it if needed).
+STEP 1 — RANDOMIZE FIRST
+Before writing a single line of code, read Section 5 of the PRD and 
+select one option from each of the four categories (Color Scheme, 
+Key Shape, Layout, Typography). Print your selections clearly like:
 
-2. MODULAR PROJECT STRUCTURE:
-   Create a clean, scalable folder structure matching these components:
-   - src/mathEngine.ts: Pure TypeScript module for expression parsing (Tokenizer -> Shunting-Yard -> RPN evaluator). Ensure it does not use ANY external math libraries (only JS Math object). Trigonometric functions must work in degrees.
-   - src/theme.ts: Centralized style tokens (colors, margins, borders, radii, fonts) representing your chosen random styling vibe.
-   - src/keyLayouts.ts: Key grid rows and columns mapping.
-   - src/components/Display.tsx: Dual-line display showing the prettified expression on top and large result/preview on the bottom.
-   - src/components/Keypad.tsx & CalcButton.tsx: Keypad container and button component with touch feedback/opacity transitions.
-   - src/components/InputModal.tsx: Modal component for multi-value inputs (nPr, nCr, and statistics).
-   - App.tsx: Core screen state holding mode toggles, expression text, history result, and event handlers.
+  Color Scheme: [your pick]
+  Key Shape: [your pick]  
+  Layout: [your pick]
+  Typography: [your pick + exact npm package name]
 
-3. FULL ROBUST IMPLEMENTATION:
-   - Make sure all functions (sin, cos, tan, inverse/hyperbolic functions, power, root, constants, factorial) are mapped correctly.
-   - Handle edge cases gracefully: division by zero, invalid equations, double decimal points, negative factorials. The screen should show "Error" and allow recovery.
-   - Prettify equation display (replace '*' with '×', '/' with '÷', etc.).
-   - Make sure fonts load asynchronously using Expo's `useFonts` hook and render a loading placeholder/empty background screen until fonts are ready to prevent UI flicker.
+Do not change these selections mid-build.
 
-Let's begin! First, state your selected randomized layout/color choices, then create the implementation plan, and write the complete, clean code. Do not write placeholder comments like "// TODO: implement math logic" — write the fully operational code.
-```
+STEP 2 — INSTALL COMMAND
+Print the exact terminal command to install all required packages 
+including the chosen Google Font package. Example format:
+  npx expo install expo-font @expo-google-fonts/orbitron
+
+STEP 3 — BUILD ALL FILES
+Create every file in the structure defined in Section 3 of the PRD.
+Rules:
+- No placeholder comments (no "// TODO", no "// implement later")
+- Every function must be fully implemented
+- theme.ts must reflect your chosen color/shape/typography selections
+- mathEngine.ts must have zero external imports
+- All trig functions must work in degrees not radians
+
+STEP 4 — AFTER CODE IS COMPLETE
+Print these two things:
+1. Command to run on Expo Go: npx expo start
+2. Command to build APK: npx eas build -p android --profile preview
+   Include the required eas.json content for the preview profile.
+
+PRD:
+[PASTE PRD HERE]np
