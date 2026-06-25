@@ -44,4 +44,4 @@ Print these two things:
    Include the required eas.json content for the preview profile.
 
 PRD:
-[PASTE PRD HERE]np
+[PASTE PRD HERE]
