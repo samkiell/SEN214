@@ -130,7 +130,23 @@ export function tokenize(expr: string): string[] {
     }
   }
 
-  return processedTokens;
+  // Insert implicit multiplications (e.g. 5π -> 5 * π, 5(2) -> 5 * (2))
+  const finalTokens: string[] = [];
+  for (let k = 0; k < processedTokens.length; k++) {
+    const curr = processedTokens[k];
+    if (k > 0) {
+      const prev = processedTokens[k - 1];
+      const prevIsNumber = !isNaN(Number(prev)) || prev === 'π' || prev === 'e' || prev === ')' || prev === '!';
+      const currIsNumberOrFunc = !isNaN(Number(curr)) || curr === 'π' || curr === 'e' || curr === '(' || FUNCTIONS.has(curr);
+      
+      if (prevIsNumber && currIsNumberOrFunc) {
+        finalTokens.push('*');
+      }
+    }
+    finalTokens.push(curr);
+  }
+
+  return finalTokens;
 }
 
 /**
