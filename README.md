@@ -94,5 +94,5 @@ eas build -p android --profile preview
 ## Credits
 
 Templates designed by **SAMKIEL** (Samuel Ezekiel)  
-SWE/2023/072 — Software Engineering, OAU Ile-Ife  
+SWE — Software Engineering, OAU Ile-Ife  
 [samkiel.dev](https://samkiel.dev) · [@samkiel_dev](https://x.com/samkiel_dev)
