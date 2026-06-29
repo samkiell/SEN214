@@ -1,12 +1,12 @@
 # SEN 214 — Scientific Calculator App Templates
 
-This repository contains the PRD and Agent Prompt templates for the 
-SEN 104 & SEN 214 Mobile App Development assignment at Obafemi Awolowo 
+This repository contains the PRD and Agent Prompt templates for the
+SEN 104 & SEN 214 Mobile App Development assignment at Obafemi Awolowo
 University, Ile-Ife.
 
-These templates were created to help students build a unique Scientific 
-Calculator mobile app using React Native (Expo) and an AI coding agent 
-like Antigravity, Cursor, or Claude Code.
+These templates help students build a unique Scientific Calculator
+mobile app using React Native (Expo) and an AI coding agent like
+Antigravity, Cursor, Copilot, or Claude Code.
 
 ---
 
@@ -33,20 +33,24 @@ npx create-expo-app CalculatorApp
 cd CalculatorApp
 ```
 
-### Step 3 — Run the agent
-- Open the project in Antigravity
+### Step 3 — Prepare the prompt
 - Open `Agent_Prompt_Template.md`
-- Copy the prompt
-- Paste the full contents of `PRD_Template.md` at the bottom where it says `[PASTE PRD HERE]`
-- Send it to the agent and let it build
+- Replace `[YOUR FIRST NAME]` with your actual first name
+- Replace `[LAST 2 DIGITS OF YOUR MATRIC NUMBER]` with the last 2 digits of your matric number
+- Copy the full contents of `PRD_Template.md` and paste it where it says `[PASTE PRD HERE]`
 
-### Step 4 — Run on your phone
+### Step 4 — Run the agent
+- Open the project in Antigravity (or your chosen AI agent)
+- Paste the prepared prompt and send it
+- Let the agent build — it will compute your unique design automatically
+
+### Step 5 — Run on your phone
 ```bash
 npx expo start
 ```
 Scan the QR code with Expo Go on your phone.
 
-### Step 5 — Push to GitHub
+### Step 6 — Push to GitHub
 ```bash
 git init
 git add .
@@ -56,7 +60,7 @@ git branch -M main
 git push -u origin main
 ```
 
-### Step 6 — Build your APK
+### Step 7 — Build your APK
 ```bash
 npm install -g eas-cli
 eas login
@@ -65,12 +69,22 @@ eas build -p android --profile preview
 
 ---
 
-## Important Notes
+## How Uniqueness Works
 
-- Every student's app will look **different** because the agent 
-  randomly selects colors, fonts, and layouts from the PRD options
-- Do **not** copy another student's output — the randomization 
-  means yours should be unique
+Every student's app looks **different** because the design is
+**deterministically selected** based on your name and matric number.
+
+The algorithm uses your first name's first letter and your matric
+number's last two digits to compute which color scheme, key shape,
+layout, font, accent color, and display style your app gets.
+
+**Total unique combinations: 12 × 6 × 6 × 8 × 5 × 4 = 69,120**
+
+This means two students would need the same first letter AND same
+last two matric digits to get an identical design — extremely unlikely.
+
+- Do **not** copy another student's output
+- Do **not** change the design selections the agent computes
 - Submission deadline: **June 30, 2026**
 - Submission form: [Click here](https://docs.google.com/forms/d/e/1FAIpQLSeXxGZ3zHR1wKc4WEew3Nv6hsToj27JhlmlSmdsFosPnj888g/viewform)
 
@@ -93,6 +107,6 @@ eas build -p android --profile preview
 
 ## Credits
 
-Templates designed by **SAMKIEL** (Samuel Ezekiel)  
-SWE — Software Engineering, OAU Ile-Ife  
+Templates designed by **SAMKIEL** (Samuel Ezekiel)
+SWE — Software Engineering, OAU Ile-Ife
 [samkiel.dev](https://samkiel.dev) · [@samkiel_dev](https://x.com/samkiel_dev)
