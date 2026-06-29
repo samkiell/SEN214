@@ -8,14 +8,14 @@ Build a cross-platform mobile Scientific Calculator using React Native (Expo)
 and TypeScript. The app supports Basic and Scientific modes. All math logic
 must use JavaScript's native Math object only — no external math libraries.
 
-### CRITICAL: Deterministic Design Selection
+### CRITICAL: Randomized Design Selection
 This app's visual design is NOT up to the agent's preference. Section 5
-defines a mandatory selection algorithm that uses the student's name and
-matric number to deterministically pick a unique combination of colors,
-shapes, layout, font, accent, and display style.
+defines a mandatory random selection process. The agent must independently
+and randomly select one option from each of the six design categories.
 
-**The agent MUST NOT skip, override, or "improve" the selections.**
-**The agent MUST NOT default to dark theme unless the algorithm selects it.**
+**The agent MUST NOT pick based on personal preference or "what looks best."**
+**The agent MUST NOT default to dark theme. Light and mid-tone themes exist and MUST have equal probability of being selected.**
+**The agent MUST NOT skip, override, or "improve" the random selections.**
 
 ---
 
@@ -82,50 +82,27 @@ floating point noise (e.g. 0.1+0.2 = 0.3 not 0.30000000000000004)
 
 ---
 
-## 5. Design Randomization — MANDATORY DETERMINISTIC SELECTION
+## 5. Design Randomization — MANDATORY RANDOM SELECTION
 
 ### ⚠️ THIS SECTION IS A HARD CONSTRAINT, NOT A SUGGESTION
 
-The agent MUST follow the algorithm below exactly. The agent does NOT
-get to "choose" or "prefer" any option. The algorithm decides.
+The agent MUST randomly and independently select one option from each
+of the six categories below. The agent does NOT get to "choose" or
+"prefer" any option. Each option in each category has equal probability.
 
-### 5.0 Selection Algorithm
+### 5.0 Selection Rules
 
-The student will provide two values:
-- **FIRST_NAME** — their first name (e.g. "Samuel")
-- **MATRIC_LAST_TWO** — last two digits of their matric number (e.g. "47")
-
-The agent must compute indices as follows:
-
-```
-LETTER_INDEX = (ASCII code of uppercase first letter of FIRST_NAME) - 65
-  Example: "Samuel" → 'S' → ASCII 83 → 83 - 65 = 18
-
-MATRIC_NUM = integer value of MATRIC_LAST_TWO
-  Example: "47" → 47
-```
-
-Then select from each category using modular arithmetic:
-
-```
-Color Scheme  = OPTIONS_5_1[ (LETTER_INDEX + MATRIC_NUM) % 12 ]
-Key Shape     = OPTIONS_5_2[ (LETTER_INDEX * 2 + MATRIC_NUM) % 6 ]
-Layout        = OPTIONS_5_3[ (MATRIC_NUM * 3 + LETTER_INDEX) % 6 ]
-Typography    = OPTIONS_5_4[ (LETTER_INDEX + MATRIC_NUM * 2) % 8 ]
-Accent Color  = OPTIONS_5_5[ (MATRIC_NUM + LETTER_INDEX * 3) % 5 ]
-Display Style = OPTIONS_5_6[ (LETTER_INDEX * MATRIC_NUM) % 4 ]
-```
-
-**The agent MUST print the computed indices and final selections
-before writing ANY code. Format:**
+1. **Each category is independent.** Roll separately for each one.
+2. **Every option has equal weight.** Dark themes, light themes, and
+   mid-tone themes are equally likely. Do NOT bias toward dark.
+3. **Selection happens ONCE before any code is written.** No changing
+   selections mid-build.
+4. **Check Section 5.7** for banned combinations after selecting.
+   Apply the override rule if a banned combo is hit.
+5. **Print selections before writing ANY code** in this exact format:
 
 ```
 === DESIGN SELECTION (DO NOT MODIFY) ===
-Student: [FIRST_NAME]
-Matric Last Two: [MATRIC_LAST_TWO]
-LETTER_INDEX: [value]
-MATRIC_NUM: [value]
-
 Color Scheme:  [index] → [name]
 Key Shape:     [index] → [name]
 Layout:        [index] → [name]
@@ -134,6 +111,10 @@ Accent Color:  [index] → [name + hex]
 Display Style: [index] → [name]
 ========================================
 ```
+
+**Reminder: If you always pick dark themes, you are not being random.
+Light themes (indices 8–11) must appear roughly 1/3 of the time across
+students. If your selection is all dark, you are doing it wrong.**
 
 ---
 
@@ -336,9 +317,9 @@ background, pressed state tint, toggle indicator, and modal confirm button.
 
 ### 5.7 Banned Combinations & Overrides
 
-If the algorithm produces any of these, the agent must increment
-the Color Scheme index by 1 (wrapping around) until the conflict
-is resolved:
+If the random selection produces any of these, the agent must
+re-roll ONLY the Color Scheme (pick the next index, wrapping
+around) until the conflict is resolved:
 
 - **Accent Amber Gold (#FFB300) + any Light Theme (index 8–11):**
   Insufficient contrast. Shift color scheme index +1.
@@ -346,13 +327,13 @@ is resolved:
 - **Accent Coral (#FF6B6B) + Volcanic Black (index 3):**
   Red-on-dark-red clash. Shift color scheme index +1.
 
-For all other combinations, use as computed. No exceptions.
+For all other combinations, use as selected. No exceptions.
 
 ---
 
 ## 6. Premium Design Requirements
 
-Regardless of which selections the algorithm produces, the app
+Regardless of which selections the randomization produces, the app
 MUST meet these quality bars:
 
 - **Consistent border radius** across all keys (no mixing round and square)

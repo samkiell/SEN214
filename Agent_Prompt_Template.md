@@ -11,23 +11,17 @@ in the PRD attached below.
 
 Follow these rules strictly:
 
-STEP 0 — STUDENT IDENTITY
-The student's details are:
-  First Name: [YOUR FIRST NAME]
-  Matric Last Two Digits: [LAST 2 DIGITS OF YOUR MATRIC NUMBER]
-
-STEP 1 — COMPUTE DESIGN SELECTIONS (MANDATORY)
-Read Section 5 of the PRD. Using the student's first name and matric
-last two digits, execute the deterministic selection algorithm EXACTLY
-as documented. You MUST:
-- Compute LETTER_INDEX from the first letter of the first name
-- Compute MATRIC_NUM from the last two digits
-- Apply the modular arithmetic formulas to select from each category
+STEP 1 — RANDOMIZE DESIGN SELECTIONS (MANDATORY)
+Read Section 5 of the PRD. Randomly and independently select one
+option from each of the six design categories. You MUST:
+- Give every option in each category equal probability
+- NOT bias toward dark themes — light and mid-tone are equally valid
 - Check Section 5.7 for banned combinations and apply overrides if needed
 - Print the full selection table in the exact format shown in the PRD
+  BEFORE writing any code
 
 DO NOT pick your own preferences. DO NOT default to dark theme.
-DO NOT deviate from the algorithm output.
+DO NOT deviate from the random selections.
 
 STEP 2 — INSTALL COMMAND
 Print the exact terminal command to install all required packages
@@ -39,7 +33,7 @@ Create every file in the structure defined in Section 3 of the PRD.
 Rules:
 - No placeholder comments (no "// TODO", no "// implement later")
 - Every function must be fully implemented
-- theme.ts must reflect the COMPUTED color scheme, key shape,
+- theme.ts must reflect the RANDOMLY SELECTED color scheme, key shape,
   typography, accent color, and display style — not your preference
 - mathEngine.ts must have zero external imports
 - All trig functions must work in degrees not radians
