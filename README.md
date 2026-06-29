@@ -1,50 +1,98 @@
-# Welcome to your Expo app 👋
+# SEN 214 — Scientific Calculator App Templates
 
-This is an [Expo](https://expo.dev) project created with [`create-expo-app`](https://www.npmjs.com/package/create-expo-app).
+This repository contains the PRD and Agent Prompt templates for the 
+SEN 104 & SEN 214 Mobile App Development assignment at Obafemi Awolowo 
+University, Ile-Ife.
 
-## Get started
+These templates were created to help students build a unique Scientific 
+Calculator mobile app using React Native (Expo) and an AI coding agent 
+like Antigravity, Cursor, or Claude Code.
 
-1. Install dependencies
+---
 
-   ```bash
-   npm install
-   ```
+## What's Inside
 
-2. Start the app
+| File | Purpose |
+|------|---------|
+| `PRD_Template.md` | Full product requirements document defining what to build |
+| `Agent_Prompt_Template.md` | The prompt to paste into your AI agent to start building |
 
-   ```bash
-   npx expo start
-   ```
+---
 
-In the output, you'll find options to open the app in a
+## How to Use
 
-- [development build](https://docs.expo.dev/develop/development-builds/introduction/)
-- [Android emulator](https://docs.expo.dev/workflow/android-studio-emulator/)
-- [iOS simulator](https://docs.expo.dev/workflow/ios-simulator/)
-- [Expo Go](https://expo.dev/go), a limited sandbox for trying out app development with Expo
+### Step 1 — Set up your environment
+- Install [Node.js](https://nodejs.org) (LTS version)
+- Install [Antigravity IDE](https://antigravity.dev) or any AI coding agent
+- Create an [Expo account](https://expo.dev) and download the Expo Go app on your phone
+- Create a [GitHub account](https://github.com)
 
-You can start developing by editing the files inside the **app** directory. This project uses [file-based routing](https://docs.expo.dev/router/introduction).
-
-## Get a fresh project
-
-When you're ready, run:
-
+### Step 2 — Create your project
 ```bash
-npm run reset-project
+npx create-expo-app CalculatorApp
+cd CalculatorApp
 ```
 
-This command will move the starter code to the **app-example** directory and create a blank **app** directory where you can start developing.
+### Step 3 — Run the agent
+- Open the project in Antigravity
+- Open `Agent_Prompt_Template.md`
+- Copy the prompt
+- Paste the full contents of `PRD_Template.md` at the bottom where it says `[PASTE PRD HERE]`
+- Send it to the agent and let it build
 
-## Learn more
+### Step 4 — Run on your phone
+```bash
+npx expo start
+```
+Scan the QR code with Expo Go on your phone.
 
-To learn more about developing your project with Expo, look at the following resources:
+### Step 5 — Push to GitHub
+```bash
+git init
+git add .
+git commit -m "first commit"
+git remote add origin YOUR_REPO_URL
+git branch -M main
+git push -u origin main
+```
 
-- [Expo documentation](https://docs.expo.dev/): Learn fundamentals, or go into advanced topics with our [guides](https://docs.expo.dev/guides).
-- [Learn Expo tutorial](https://docs.expo.dev/tutorial/introduction/): Follow a step-by-step tutorial where you'll create a project that runs on Android, iOS, and the web.
+### Step 6 — Build your APK
+```bash
+npm install -g eas-cli
+eas login
+eas build -p android --profile preview
+```
 
-## Join the community
+---
 
-Join our community of developers creating universal apps.
+## Important Notes
 
-- [Expo on GitHub](https://github.com/expo/expo): View our open source platform and contribute.
-- [Discord community](https://chat.expo.dev): Chat with Expo users and ask questions.
+- Every student's app will look **different** because the agent 
+  randomly selects colors, fonts, and layouts from the PRD options
+- Do **not** copy another student's output — the randomization 
+  means yours should be unique
+- Submission deadline: **June 30, 2026**
+- Submission form: [Click here](https://docs.google.com/forms/d/e/1FAIpQLSeXxGZ3zHR1wKc4WEew3Nv6hsToj27JhlmlSmdsFosPnj888g/viewform)
+
+---
+
+## Assignment Requirements
+
+**Basic (Required)**
+- Addition, Subtraction, Multiplication, Division
+
+**Bonus (Extra marks)**
+- Trigonometric functions
+- Hyperbolic functions
+- Logarithms and powers
+- Permutations and Combinations
+- Statistical computations (mean, variance, std dev)
+- Constants π and e
+
+---
+
+## Credits
+
+Templates designed by **SAMKIEL** (Samuel Ezekiel)  
+SWE/2023/072 — Software Engineering, OAU Ile-Ife  
+[samkiel.dev](https://samkiel.dev) · [@samkiel_dev](https://x.com/samkiel_dev)
